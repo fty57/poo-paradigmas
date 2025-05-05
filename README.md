@@ -119,6 +119,3 @@ jogo.exibirDetalhes()
 
 Este projeto está licenciado sob a licença MIT.
 
----
-
-Desenvolvido com ❤️ por [Seu Nome]
