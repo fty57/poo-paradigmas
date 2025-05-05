@@ -1,6 +1,9 @@
-# 📽️ Sistema de Locação de Filmes, Séries e Jogos
+# Locaí 📽️ - Sistema de Locadora de Filmes, Séries e Jogos
+Este documento apresenta a implementação de um sistema de locadora utilizando Programação Orientada a Objetos (POO) em Kotlin.
 
-Um sistema de locação desenvolvido em Kotlin seguindo os princípios de Programação Orientada a Objetos (POO) para gerenciar a locação de itens de entretenimento.
+## Membros da equipe
+- Francisco Álisson Véras Damasceno, 586622 - Engenharia de Software
+- José Lucas Amorim Silva, 586623 - Engenharia de Software
 
 ## 📋 Funcionalidades Principais
 
