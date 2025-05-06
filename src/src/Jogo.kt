@@ -6,7 +6,6 @@ class Jogo(
     private var genero: String
 ) : ItemLocadora(idItem, titulo, disponivel), ItemFisico {
 
-    // Getter e Setter específico
     fun getGenero(): String = genero
     fun setGenero(novoGenero: String) { genero = novoGenero }
 
@@ -15,13 +14,12 @@ class Jogo(
         println("""
             ID: ${this.getIdItem()}
             Título (Jogo): ${this.getTitulo()}
-            Gênero: $genero
+            Gênero: ${this.getGenero()}
             Disponível: ${if (this.isDisponivel()) "Sim" else "Não"}
         """.trimIndent())
     }
 
-    // Implementação da interface
-    override fun verificarDisponibilidadeFisica(): Boolean {
+    override fun podeSerAlugadoFisicamente(): Boolean {
         return this.isDisponivel()
     }
 }

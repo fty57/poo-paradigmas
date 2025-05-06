@@ -1,18 +1,17 @@
+import ItemFisico
+
 class Locadora(private var nomeLocadora: String) {
     private val listaClientes = mutableListOf<Cliente>()
     private val listaItens = mutableListOf<ItemLocadora>()
     private val locacoes = mutableMapOf<Cliente, MutableList<ItemLocadora>>()
 
-    // Getters
     fun getNomeLocadora(): String = nomeLocadora
     fun getListaClientes(): List<Cliente> = listaClientes.toList()
     fun getListaItens(): List<ItemLocadora> = listaItens.toList()
     fun getLocacoes(): Map<Cliente, List<ItemLocadora>> = locacoes.toMap()
 
-    // Setter para nome
     fun setNomeLocadora(novoNome: String) { nomeLocadora = novoNome }
 
-    // Métodos para gerenciar clientes
     fun adicionarCliente(cliente: Cliente) {
         listaClientes.add(cliente)
     }
@@ -22,18 +21,15 @@ class Locadora(private var nomeLocadora: String) {
         locacoes.remove(cliente)
     }
 
-    // Métodos para gerenciar itens
     fun adicionarItem(item: ItemLocadora) {
         listaItens.add(item)
     }
 
     fun removerItem(item: ItemLocadora) {
         listaItens.remove(item)
-        // Remove item de todas as locações
         locacoes.values.forEach { it.remove(item) }
     }
 
-    // Método para alugar itens
     fun alugarItens(cliente: Cliente, itens: List<ItemLocadora>): Boolean {
         if (!listaClientes.contains(cliente)) {
             println("Cliente não cadastrado.")
@@ -44,10 +40,24 @@ class Locadora(private var nomeLocadora: String) {
         val itensIndisponiveis = mutableListOf<ItemLocadora>()
 
         for (item in itens) {
-            if (item.isDisponivel()) {
-                itensParaAlugar.add(item)
-            } else {
-                itensIndisponiveis.add(item)
+            when {
+                // Verificação especial para itens físicos
+                item is ItemFisico && !item.podeSerAlugadoFisicamente() -> {
+                    itensIndisponiveis.add(item)
+                    println("ATENÇÃO: O item físico ${item.getTitulo()} não está disponível para locação.")
+                }
+                // Série (digital) pode ser alugada mesmo se já estiver alugada
+                item is Serie -> {
+                    itensParaAlugar.add(item)
+                }
+                // Itens físicos disponíveis
+                item.isDisponivel() -> {
+                    itensParaAlugar.add(item)
+                }
+                // Itens físicos indisponíveis
+                else -> {
+                    itensIndisponiveis.add(item)
+                }
             }
         }
 
@@ -62,14 +72,15 @@ class Locadora(private var nomeLocadora: String) {
 
         // Efetua o aluguel
         itensParaAlugar.forEach { item ->
-            item.alugar()
+            if (item is ItemFisico) {
+                item.alugar() // Marca como indisponível
+            }
             locacoes.getOrPut(cliente) { mutableListOf() }.add(item)
         }
 
         return true
     }
 
-    // Método para devolver itens
     fun devolverItens(cliente: Cliente, itens: List<ItemLocadora>): Boolean {
         val itensCliente = locacoes[cliente] ?: return false
 
@@ -97,7 +108,6 @@ class Locadora(private var nomeLocadora: String) {
         return true
     }
 
-    // Método para listar locações
     fun listarLocacoes() {
         if (locacoes.isEmpty()) {
             println("Não há itens alugados no momento.")
@@ -113,7 +123,6 @@ class Locadora(private var nomeLocadora: String) {
         }
     }
 
-    // Método para listar itens disponíveis
     fun listarItensDisponiveis() {
         val disponiveis = listaItens.filter { it.isDisponivel() }
 

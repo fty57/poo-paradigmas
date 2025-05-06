@@ -5,16 +5,14 @@ class Serie(
     private var qtdTemporadas: Int
 ) : ItemLocadora(idItem, titulo, disponivel) {
 
-    // Getter e Setter específico
     fun getQtdTemporadas(): Int = qtdTemporadas
     fun setQtdTemporadas(novaQtd: Int) { qtdTemporadas = novaQtd }
 
-    // Polimorfismo
     override fun exibirDetalhes() {
         println("""
             ID: ${this.getIdItem()}
             Título (Série): ${this.getTitulo()}
-            Temporadas: $qtdTemporadas
+            Temporadas: ${this.getQtdTemporadas()}
             Disponível: ${if (this.isDisponivel()) "Sim" else "Não"}
         """.trimIndent())
     }

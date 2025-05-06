@@ -4,7 +4,6 @@ class Cliente(
     private var cpf: String,
     private var email: String
 ) {
-    // Getters e Setters
     fun getIdCliente(): Int = idCliente
     fun getNome(): String = nome
     fun getCpf(): String = cpf

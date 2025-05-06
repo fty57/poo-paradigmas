@@ -1,3 +1,3 @@
 interface ItemFisico {
-    fun verificarDisponibilidadeFisica(): Boolean
+    fun podeSerAlugadoFisicamente(): Boolean
 }

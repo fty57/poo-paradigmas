@@ -1,12 +1,10 @@
 abstract class ItemLocadora(
-    private var idItem: Int,
+    protected var idItem: Int,
     private var titulo: String,
     private var disponivel: Boolean
 ) {
-    // Método abstrato para polimorfismo
     abstract fun exibirDetalhes()
 
-    // Getters e Setters
     fun getIdItem(): Int = idItem
     fun getTitulo(): String = titulo
     fun isDisponivel(): Boolean = disponivel
@@ -16,14 +14,14 @@ abstract class ItemLocadora(
     fun setDisponivel(disponibilidade: Boolean) { disponivel = disponibilidade }
 
     fun alugar(): Boolean {
-        if (disponivel) {
-            disponivel = false
+        if (isDisponivel()) {
+            setDisponivel(false)
             return true
         }
         return false
     }
 
     fun devolver() {
-        disponivel = true
+        setDisponivel(true)
     }
 }

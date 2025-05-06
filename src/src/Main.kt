@@ -8,7 +8,7 @@ import Locadora
 
 fun main() {
     val locadora = Locadora("Locadora")
-    locadora.setNomeLocadora("Locaí")
+    locadora.setNomeLocadora("Locaí Raridades")
 
     // Adicionando clientes
     val cliente1 = Cliente(1, "João Oliveira", "123.456.789-00", "joao.oliveira@gmail.com")
@@ -35,19 +35,21 @@ fun main() {
     locadora.adicionarItem(serie2)
 
     // Listando itens disponíveis
-    // locadora.listarItensDisponiveis()
+     locadora.listarItensDisponiveis()
 
     // Alugando itens
     locadora.alugarItens(cliente1, listOf(jogo1, filme1, serie1))
     locadora.alugarItens(cliente2, listOf(jogo2, filme2))
     locadora.alugarItens(cliente3, listOf(serie2))
+    locadora.alugarItens(cliente1,listOf(serie2))
+    locadora.alugarItens(cliente2,listOf(serie1))
 
     // Listando locações
-    // locadora.listarLocacoes()
+     locadora.listarLocacoes()
 
     // Devolvendo itens
-    locadora.devolverItens(cliente1, listOf(jogo1, filme1, serie1))
-    locadora.devolverItens(cliente2, listOf(jogo2, filme2))
+    // locadora.devolverItens(cliente1, listOf(jogo1, filme1, serie1))
+    // locadora.devolverItens(cliente2, listOf(jogo2, filme2))
 
     // Listando locações
     // locadora.listarLocacoes()
@@ -62,10 +64,4 @@ fun main() {
     serie2.exibirDetalhes()
      */
 
-    // Verificando disponibilidade física (interface)
-    /*
-    println("\nDisponibilidade física do filme: ${filme1.verificarDisponibilidadeFisica()}")
-    println("\nDisponibilidade física do filme: ${jogo2.verificarDisponibilidadeFisica()}")
-    println("\nDisponibilidade física do filme: ${serie1.verificarDisponibilidadeFisica()}")
-    */
 }
