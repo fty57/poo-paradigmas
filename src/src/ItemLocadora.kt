@@ -5,11 +5,11 @@ abstract class ItemLocadora(
 ) {
     abstract fun exibirDetalhes()
 
-    fun getIdItem(): Int = idItem
+    fun getIdItemInfo(): Int = idItem
     fun getTitulo(): String = titulo
     fun isDisponivel(): Boolean = disponivel
 
-    fun setIdItem(id: Int) { idItem = id }
+    fun setIdItemInfo(id: Int) { idItem = id }
     fun setTitulo(novoTitulo: String) { titulo = novoTitulo }
     fun setDisponivel(disponibilidade: Boolean) { disponivel = disponibilidade }
 

@@ -10,7 +10,7 @@ class Serie(
 
     override fun exibirDetalhes() {
         println("""
-            ID: ${this.getIdItem()}
+            ID: ${this.getIdItemInfo()}
             Título (Série): ${this.getTitulo()}
             Temporadas: ${this.getQtdTemporadas()}
             Disponível: ${if (this.isDisponivel()) "Sim" else "Não"}

@@ -10,7 +10,7 @@ class Filme(
 
     override fun exibirDetalhes() {
         println("""
-            ID: ${this.getIdItem()}
+            ID: ${this.getIdItemInfo()}
             Título (Filme): ${this.getTitulo()}
             Classificação: ${this.getClassificacao()}
             Disponível: ${if (this.isDisponivel()) "Sim" else "Não"}

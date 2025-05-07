@@ -13,7 +13,7 @@ fun main() {
     // Adicionando clientes
     val cliente1 = Cliente(1, "João Oliveira", "123.456.789-00", "joao.oliveira@gmail.com")
     val cliente2 = Cliente(2, "Maria Souza", "987.654.321-00", "maria.souza@gmail.com")
-    val cliente3 = Cliente(idCliente = 3, nome = "Silva Junior", "321.654.987-88", "silva.junior@gmail.com")
+    val cliente3 = Cliente(3, "Silva Junior", "321.654.987-88", "silva.junior@gmail.com")
 
     locadora.adicionarCliente(cliente1)
     locadora.adicionarCliente(cliente2)

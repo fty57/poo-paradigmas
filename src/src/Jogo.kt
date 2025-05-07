@@ -12,7 +12,7 @@ class Jogo(
     // Polimorfismo
     override fun exibirDetalhes() {
         println("""
-            ID: ${this.getIdItem()}
+            ID: ${this.getIdItemInfo()}
             Título (Jogo): ${this.getTitulo()}
             Gênero: ${this.getGenero()}
             Disponível: ${if (this.isDisponivel()) "Sim" else "Não"}
