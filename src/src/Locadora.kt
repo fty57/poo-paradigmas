@@ -13,6 +13,10 @@ class Locadora(private var nomeLocadora: String) {
     fun setNomeLocadora(novoNome: String) { nomeLocadora = novoNome }
 
     fun adicionarCliente(cliente: Cliente) {
+        if (cliente.getCpf().length != 11) {
+            println("Erro: CPF inválido!")
+            return
+        }
         listaClientes.add(cliente)
     }
 

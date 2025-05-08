@@ -11,8 +11,8 @@ fun main() {
     locadora.setNomeLocadora("Locaí Raridades")
 
     // Adicionando clientes
-    val cliente1 = Cliente(1, "João Oliveira", "123.456.789-00", "joao.oliveira@gmail.com")
-    val cliente2 = Cliente(2, "Maria Souza", "987.654.321-00", "maria.souza@gmail.com")
+    val cliente1 = Cliente(1, "João Oliveira", "12345678900", "joao.oliveira@gmail.com")
+    val cliente2 = Cliente(2, "Maria Souza", "98765432100", "maria.souza@gmail.com")
     val cliente3 = Cliente(3, "Silva Junior", "321.654.987-88", "silva.junior@gmail.com")
 
     locadora.adicionarCliente(cliente1)
@@ -23,9 +23,10 @@ fun main() {
     val jogo1 = Jogo(1, "The Last of Us Part II", true, "Ação/Aventura")
     val jogo2 = Jogo(2, "Frostpunk", true, "Civilização")
     val filme1 = Filme(3, "Interestelar", true, "12 anos")
-    val filme2 = Filme(idItem = 4, "Matrix", disponivel = true, "14 anos")
+    val filme2 = Filme(4, "Matrix", disponivel = true, "14 anos")
     val serie1 = Serie(5, "Stranger Things", true, 4)
-    val serie2 = Serie(idItem = 6, "Doctor Who", disponivel = true, qtdTemporadas = 12)
+    val serie2 = Serie(6, "Doctor Who", disponivel = true, 12)
+
 
     locadora.adicionarItem(jogo1)
     locadora.adicionarItem(jogo2)
